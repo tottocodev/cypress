@@ -1,0 +1,15 @@
+{
+  "devDependencies": {
+    "cypress": "^13.16.0",
+    "cypress-shadow-dom": "^1.4.1"
+  },
+  "scripts": {
+  },
+  "dependencies": {
+    "papaparse": "^5.4.1",
+    "puppeteer": "^23.9.0",
+    "puppeteer-extra": "^3.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2",
+    "xlsx": "^0.18.5"
+  }
+}

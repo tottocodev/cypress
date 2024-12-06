@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+  cypress:
+    build:
+      context: .
+    container_name: cypress_gui
+    volumes:
+      - .:/e2e-test # Monta tu proyecto en el contenedor
+      - ./cypress/videos:/e2e-test/cypress/videos # Persistir videos
+      - ./cypress/screenshots:/e2e-test/cypress/screenshots # Persistir capturas
+      - /tmp/.X11-unix:/tmp/.X11-unix # Conectar el servidor X11
+    environment:
+      - CYPRESS_CSV_PATH=/e2e-test/cypress/fixtures/productos.csv
+      - DISPLAY=${DISPLAY} # Usar la variable DISPLAY del host
+    entrypoint: ["cypress", "open"] # Asegúrate de que abra la GUI interactiva
+    ports:
+      - "8080:8080" # (Opcional) Exponer puerto si necesitas otros servicios
